@@ -643,7 +643,7 @@
     <ID>ReturnCount:BlurOverlayView.kt$BlurOverlayView$private fun findResizeHandle( screenX: Float, screenY: Float, ivMatrix: Matrix, ): Pair&lt;Int, Handle&gt;?</ID>
     <ID>ReturnCount:BlurOverlayView.kt$BlurOverlayView$private fun snapRectToMCU(rect: RectF)</ID>
     <ID>ReturnCount:BookmarkPicturesFragment.kt$BookmarkPicturesFragment$private fun handleSuccess(collection: List&lt;Media&gt;?)</ID>
-    <ID>ReturnCount:BookmarksTable.kt$BookmarksTable$fun onUpdate(db: SupportSQLiteDatabase, from: Int, to: Int)</ID>
+    <ID>ReturnCount:BookmarksTable.kt$BookmarksTable$fun onUpdate( db: SupportSQLiteDatabase, from: Int, to: Int, )</ID>
     <ID>ReturnCount:CategoriesModel.kt$CategoriesModel$fun isSpammyCategory(item: String): Boolean</ID>
     <ID>ReturnCount:CommonsDaggerSupportFragment.kt$CommonsDaggerSupportFragment$private fun findHasFragmentInjector(): HasSupportFragmentInjector</ID>
     <ID>ReturnCount:CoordinateEditHelper.kt$CoordinateEditHelper$private fun getFormattedWikiText( wikiText: String, editedLocation: String, ): String</ID>

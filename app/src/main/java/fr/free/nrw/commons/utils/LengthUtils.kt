@@ -10,6 +10,12 @@ import kotlin.math.sin
 import kotlin.math.sqrt
 
 object LengthUtils {
+    private const val METERS_PER_KM = 1000
+    private const val METERS_PER_KM_DOUBLE = 1000.0
+    private const val EARTH_RADIUS_METERS = 6371009.0 // Average radius of the Earth in meters
+    private const val HALF_ANGLE_MULTIPLIER = 0.5
+    private const val FULL_CIRCLE_DEGREES = 360
+
     /**
      * Returns a formatted distance string between two points.
      *
@@ -46,9 +52,9 @@ object LengthUtils {
         val numberFormat = NumberFormat.getNumberInstance()
 
         // Adjust to km if distance is over 1000m (1km)
-        return if (distance >= 1000) {
+        return if (distance >= METERS_PER_KM) {
             numberFormat.maximumFractionDigits = 1
-            "${numberFormat.format(distance / 1000.0)}km"
+            "${numberFormat.format(distance / METERS_PER_KM_DOUBLE)}km"
         } else {
             "${numberFormat.format(distance)}m"
         }
@@ -66,9 +72,7 @@ object LengthUtils {
     fun computeDistanceBetween(
         point1: LatLng,
         point2: LatLng,
-    ): Double {
-        return computeAngleBetween(point1, point2) * 6371009.0 // Earth's radius in meters
-    }
+    ): Double = computeAngleBetween(point1, point2) * EARTH_RADIUS_METERS
 
     /**
      * Computes angle between two points
@@ -139,7 +143,7 @@ object LengthUtils {
      */
     @JvmStatic
     private fun hav(x: Double): Double {
-        val sinHalf = sin(x * 0.5)
+        val sinHalf = sin(x * HALF_ANGLE_MULTIPLIER)
         return sinHalf * sinHalf
     }
 
@@ -163,6 +167,6 @@ object LengthUtils {
         val y = sin(diffLongitude) * cos(lat2)
         val x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(diffLongitude)
         val bearing = atan2(y, x)
-        return (Math.toDegrees(bearing) + 360) % 360
+        return (Math.toDegrees(bearing) + FULL_CIRCLE_DEGREES) % FULL_CIRCLE_DEGREES
     }
 }

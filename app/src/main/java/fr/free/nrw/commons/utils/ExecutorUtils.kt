@@ -7,6 +7,8 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 object ExecutorUtils {
+    private const val THREAD_POOL_SIZE = 3
+
     @JvmStatic
     private val uiExecutor: Executor =
         Executor { command ->
@@ -21,7 +23,7 @@ object ExecutorUtils {
     fun uiExecutor(): Executor = uiExecutor
 
     @JvmStatic
-    private val executor: ExecutorService = Executors.newFixedThreadPool(3)
+    private val executor: ExecutorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE)
 
     @JvmStatic
     fun get(): ExecutorService = executor

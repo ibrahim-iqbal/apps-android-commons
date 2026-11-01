@@ -519,6 +519,7 @@ class NearbyParentFragment :
         initThemePreferences()
         initViews()
         presenter?.setActionListeners(applicationKvStore)
+        presenter?.removeOldCachedPlaces(applicationKvStore)
         org.osmdroid.config.Configuration
             .getInstance()
             .load(requireContext(), PreferenceManager.getDefaultSharedPreferences(requireContext()))
